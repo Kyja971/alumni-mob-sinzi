@@ -1,20 +1,24 @@
 <ion-grid *ngFor="let intern of interns" class="intern-card">
-  <ion-row >
+  <ion-row>
     <ion-col size="2"
       ><ion-icon name="person-circle-outline"></ion-icon
     ></ion-col>
 
     <ion-col size="9">
-      
-        <h2>{{ intern.lastname }} {{ intern.firstname }}</h2>
-        <h3 (click)="onCompanyClick(intern.Compagnie.name)">{{ intern.Compagnie.name }}</h3>
-        <h4>{{ intern.promo }}</h4>
-      
+      <h2>{{ intern.lastname }} {{ intern.firstname }}</h2>
+      <h3 (click)="onCompanyClick(intern.company.name)">
+        {{ intern.company.name }}
+      </h3>
+      <ion-icon
+        *ngIf="isFilterActive"
+        name="arrow-undo-outline"
+        (click)="toggleFilter()"
+      ></ion-icon>
+      <h4>{{ intern.promo }}</h4>
     </ion-col>
 
     <ion-col size="1">
-      <ion-icon name="alert-circle-outline" size ="large"></ion-icon>
+      <ion-icon name="alert-circle-outline" size="large"></ion-icon>
     </ion-col>
   </ion-row>
-
 </ion-grid>

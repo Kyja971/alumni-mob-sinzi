@@ -21,7 +21,7 @@ export class InternService {
   }
 
 public filterCompany(company : string) :Array<InternType> {
-  return this._interns.filter((intern: InternType) => intern.Compagnie.name === company)
+  return this._interns.filter((intern: InternType) => intern.company.name === company)
 }
 
   private setInterns() : void {
@@ -30,7 +30,7 @@ public filterCompany(company : string) :Array<InternType> {
             lastname : 'Jacky',
             firstname : 'Test',
             promo : 'Poec décembre2020',
-            Compagnie :
+            company :
             {
               name : 'Airbus'
             },    
@@ -40,7 +40,7 @@ public filterCompany(company : string) :Array<InternType> {
           firstname : 'Anbi',
           
           promo : 'Poec janv2018',
-          Compagnie :
+          company :
           {
             name : 'thalès'
           },
@@ -49,7 +49,7 @@ public filterCompany(company : string) :Array<InternType> {
           lastname : 'Rachid',
           firstname : 'jule',
           promo : 'Poec Avril2016',
-          Compagnie :
+          company :
           {
             name : 'ferrari'
           },
@@ -58,7 +58,7 @@ public filterCompany(company : string) :Array<InternType> {
           lastname : 'Rémi',
           firstname : 'Viviendi',
           promo : 'Poec Juillet2015',
-          Compagnie :
+          company :
           {
             name : 'Renault'
           },
@@ -68,7 +68,7 @@ public filterCompany(company : string) :Array<InternType> {
           lastname : 'Test',
           firstname : 'Jean-Luc',
           promo : 'Poec Juillet2019',
-          Compagnie :
+          company :
           {
             name : 'Renault'
           },

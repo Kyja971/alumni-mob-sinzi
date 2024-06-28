@@ -5,5 +5,5 @@ export type InternType = {
     lastname : string
     firstname : string
     promo : string
-    Compagnie : CompanyType
+    company : CompanyType
 }

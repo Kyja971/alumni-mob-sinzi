@@ -14,6 +14,7 @@ export class PostComponent implements OnInit {
    * @var InternType[]
    */
   public interns: Array<InternType> = [];
+  public isFilterActive: boolean = false;
 
   constructor(
     private _service : InternService // dependancy Injection
@@ -21,6 +22,12 @@ export class PostComponent implements OnInit {
 
   public onCompanyClick(company : string) : void{
     this.interns = this._service.filterCompany(company);
+    this.isFilterActive = true
+  }
+
+  toggleFilter() : void{
+    this.interns = this._service.findAll()
+    this.isFilterActive = false
   }
 
   ngOnInit() : void {
