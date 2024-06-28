@@ -20,35 +20,64 @@ export class InternService {
    return [...this._interns]
   }
 
+public filterCompany(company : string) :Array<InternType> {
+  return this._interns.filter((intern: InternType) => intern.Compagnie.name === company)
+}
+
   private setInterns() : void {
     this._interns = [
         {
             lastname : 'Jacky',
             firstname : 'Test',
-            job : 'Airbus',
-            promo : 'Poec décembre2020'
+            promo : 'Poec décembre2020',
+            Compagnie :
+            {
+              name : 'Airbus'
+            },    
         },
         {
           lastname : 'James',
           firstname : 'Anbi',
-          job : 'thalès',
-          promo : 'Poec janv2018'
+          
+          promo : 'Poec janv2018',
+          Compagnie :
+          {
+            name : 'thalès'
+          },
         },
         {
           lastname : 'Rachid',
           firstname : 'jule',
-          job : 'ferrari',
-          promo : 'Poec Avril2016'
+          promo : 'Poec Avril2016',
+          Compagnie :
+          {
+            name : 'ferrari'
+          },
         },
         {
           lastname : 'Rémi',
           firstname : 'Viviendi',
-          job : 'twingo',
-          promo : 'Poec Juillet2015'
+          promo : 'Poec Juillet2015',
+          Compagnie :
+          {
+            name : 'Renault'
+          },
+        },
+
+        {
+          lastname : 'Test',
+          firstname : 'Jean-Luc',
+          promo : 'Poec Juillet2019',
+          Compagnie :
+          {
+            name : 'Renault'
+          },
         },
     
       ]
     
   }
+
+  
 
 }

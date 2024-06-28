@@ -1,6 +1,9 @@
+import { CompanyType } from "../company/company-type"
+
+
 export type InternType = {
     lastname : string
     firstname : string
-    job : string
     promo : string
+    Compagnie : CompanyType
 }
