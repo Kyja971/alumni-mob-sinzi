@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { InternType } from 'src/app/core/types/intern/intern-type';
 
 @Injectable({
@@ -7,77 +9,23 @@ import { InternType } from 'src/app/core/types/intern/intern-type';
 export class InternService {
 
   private _interns : Array<InternType> = []
+  private readonly URI: string = 'http://localhost:3000/intern'
 
-  constructor() { 
-    this.setInterns()
-  }
+  constructor(
+    private _httpClient: HttpClient
+  ) {}
 
 /**
  * 
- * @returns InternType[]
+ * @returns Observable <InternType[]>
  */
-  public findAll() : Array<InternType> {
-   return [...this._interns]
+  public findAll() : Observable<Array<InternType>> {
+   return this._httpClient.get<Array<InternType>>(
+    this.URI
+   )
   }
 
 public filterCompany(company : string) :Array<InternType> {
-  return this._interns.filter((intern: InternType) => intern.company.name === company)
+  throw new Error(`Not implemented yet`)
 }
-
-  private setInterns() : void {
-    this._interns = [
-        {
-            lastname : 'Jacky',
-            firstname : 'Test',
-            promo : 'Poec décembre2020',
-            company :
-            {
-              name : 'Airbus'
-            },    
-        },
-        {
-          lastname : 'James',
-          firstname : 'Anbi',
-          
-          promo : 'Poec janv2018',
-          company :
-          {
-            name : 'thalès'
-          },
-        },
-        {
-          lastname : 'Rachid',
-          firstname : 'jule',
-          promo : 'Poec Avril2016',
-          company :
-          {
-            name : 'ferrari'
-          },
-        },
-        {
-          lastname : 'Rémi',
-          firstname : 'Viviendi',
-          promo : 'Poec Juillet2015',
-          company :
-          {
-            name : 'Renault'
-          },
-        },
-
-        {
-          lastname : 'Test',
-          firstname : 'Jean-Luc',
-          promo : 'Poec Juillet2019',
-          company :
-          {
-            name : 'Renault'
-          },
-        },
-    
-      ]
-    
-  }
-
-  
-
 }

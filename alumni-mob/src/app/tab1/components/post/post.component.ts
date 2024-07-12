@@ -1,37 +1,49 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnDestroy, OnInit} from '@angular/core';
+import { Subscription } from 'rxjs';
 import { InternService } from 'src/app/core/services/intern.service';
+import { PostService } from 'src/app/core/services/post.service';
 import { InternType } from 'src/app/core/types/intern/intern-type';
+import { PostType } from 'src/app/core/types/post/post-type';
 
 @Component({
   selector: 'app-post',
   templateUrl: './post.component.html',
   styleUrls: ['./post.component.scss'],
 })
-export class PostComponent implements OnInit {
+export class PostComponent implements OnInit, OnDestroy {
 
   /**
    * List of interns to be displayed in the view
-   * @var InternType[]
+   * @var PostType[]
    */
-  public interns: Array<InternType> = [];
+  public posts: Array<PostType> = [];
   public isFilterActive: boolean = false;
 
+  private _subscription!: Subscription
+
   constructor(
-    private _service : InternService // dependancy Injection
+    private _service : PostService // dependancy Injection
   ) {}
 
-  public onCompanyClick(company : string) : void{
-    this.interns = this._service.filterCompany(company);
-    this.isFilterActive = true
-  }
 
   toggleFilter() : void{
-    this.interns = this._service.findAll()
+    //this.interns = this._service.findAll()
     this.isFilterActive = false
   }
 
   ngOnInit() : void {
-    this.interns = this._service.findAll()
+    this._subscription = this._service.findAll()
+     .subscribe({
+      next: (posts: Array<PostType>) => { //  succes return Postype[]
+        this.posts = posts
+      },
+      error: (error: any) => {},
+      complete: () => {} // optionnel
+     })
 
+  }
+
+  ngOnDestroy(): void {
+    this._subscription.unsubscribe()
   }
 }
