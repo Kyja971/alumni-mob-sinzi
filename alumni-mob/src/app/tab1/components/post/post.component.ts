@@ -1,8 +1,6 @@
 import { Component, OnDestroy, OnInit} from '@angular/core';
 import { Subscription } from 'rxjs';
-import { InternService } from 'src/app/core/services/intern.service';
 import { PostService } from 'src/app/core/services/post.service';
-import { InternType } from 'src/app/core/types/intern/intern-type';
 import { PostType } from 'src/app/core/types/post/post-type';
 
 @Component({
