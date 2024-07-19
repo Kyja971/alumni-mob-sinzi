@@ -31,4 +31,8 @@ export class SigninComponent  implements OnInit {
     })
   }
 
+  onSubmit(): void{
+    console.log(`Bout to send ${JSON.stringify(this.form.value)}`)
+  }
+
 }
