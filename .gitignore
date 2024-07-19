@@ -1,2 +1,7 @@
-# Excludes node_modules
+
+# Exclude environments globally
+env
+.env
+
+# Exclude globally node_modules
 node_modules
