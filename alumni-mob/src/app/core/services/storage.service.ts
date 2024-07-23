@@ -7,7 +7,9 @@ export class StorageService {
 
   private _storageEngine = localStorage
 
-  constructor() { }
+  constructor(
+
+  ) { }
 
   store(key:string, value:any): void{
     const data: string = JSON.stringify(value)
@@ -23,4 +25,5 @@ export class StorageService {
   remove(key:string): void {
     this._storageEngine.removeItem(key)
   }
+
 }

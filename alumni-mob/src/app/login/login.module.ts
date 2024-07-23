@@ -17,7 +17,7 @@ import { RouterModule } from '@angular/router';
     IonicModule,
     LoginPageRoutingModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
   ],
   declarations: [LoginPage, SigninComponent]
 })
