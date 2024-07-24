@@ -11,6 +11,7 @@ import { PoeModule } from './poes/poes.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { PostEntity } from './post/models/post-entity';
 import { Poe } from './poes/entities/poe.entity';
+import { AuthModule } from './auth/auth.module';
 
 const envfile = 'env/' + process.env.NEST_ENV;
 @Module({
@@ -30,6 +31,7 @@ const envfile = 'env/' + process.env.NEST_ENV;
       synchronize: true,
     }),
   }),
+  AuthModule,
 ],
   controllers: [AppController],
   providers: [AppService],
