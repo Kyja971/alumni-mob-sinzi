@@ -3,7 +3,7 @@ services:
     image: mariadb:latest
     container_name: auth_ms
     ports:
-      - 3306:3500
+      - 3500:3306
     volumes:
       - ./datas:/var/lib/mysql
     env_file:
