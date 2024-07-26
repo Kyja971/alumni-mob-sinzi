@@ -21,10 +21,11 @@ const envfile = 'env/' + process.env.NEST_ENV;
         username: configService.get<string>('DATABASE_USERNAME'),
         password: configService.get<string>('DATABASE_PASSWORD'),
         database: configService.get<string>('DATABASE_DATABASE'),
-        entities: [AccountEntity],
+        autoLoadEntities: true,
         synchronize: true,
       }),
-    }),TypeOrmModule.forFeature([AccountEntity])
+    }),
+    TypeOrmModule.forFeature([AccountEntity]),
   ],
   controllers: [AppController],
   providers: [AppService],
