@@ -9,6 +9,25 @@ export class ActivateService {
 
   constructor() { }
 
+  _dataBase = [
+    {
+      email: "julien.alonzo@poe.aelion.fr",
+      password: 'password'
+    },
+    {
+      email: 'jacky.hoton@poe.aelion.fr',
+      password: 'password'
+    },
+    {
+      email: 'louis-gabriel.delaigue@poe.aelion.fr',
+      password: 'password'
+    },
+    {
+      email: 'rachid.remin@poe.aelion.fr',
+      password: 'password'
+    }
+  ]
+
   mails= ['julien.alonzo@poe.aelion.fr', 'jacky.hoton@poe.aelion.fr', 'test']
 
   doActivate(credentials:any): Observable<HttpResponse<any>> {

@@ -36,7 +36,8 @@ exports.AppModule = AppModule = __decorate([
                     entities: [account_entity_1.AccountEntity],
                     synchronize: true,
                 }),
-            }), typeorm_1.TypeOrmModule.forFeature([account_entity_1.AccountEntity])
+            }),
+            typeorm_1.TypeOrmModule.forFeature([account_entity_1.AccountEntity]),
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],

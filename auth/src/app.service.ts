@@ -10,8 +10,8 @@ import { Repository } from 'typeorm';
 export class AppService {
   constructor(@InjectRepository(AccountEntity) private _repository: Repository<AccountEntity>) {}
 
-  login(body: AuthBodyType): TokenType | null {
-    if (this._repository.findOne({ where: { email: body.email } })) {
+  async login(body: AuthBodyType): Promise<TokenType | null> {
+    if (await this._repository.findOne({ where: { email: body.email } })) {
       return { token: 'Ceci est un token' };
     }
     return null;

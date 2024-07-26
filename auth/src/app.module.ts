@@ -21,7 +21,7 @@ const envfile = 'env/' + process.env.NEST_ENV;
         username: configService.get<string>('DATABASE_USERNAME'),
         password: configService.get<string>('DATABASE_PASSWORD'),
         database: configService.get<string>('DATABASE_DATABASE'),
-        autoLoadEntities: true,
+        entities: [AccountEntity],
         synchronize: true,
       }),
     }),

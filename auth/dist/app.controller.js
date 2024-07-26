@@ -17,13 +17,8 @@ let AppController = class AppController {
     constructor(_appService) {
         this._appService = _appService;
     }
-    login(body) {
-        console.log('coucou du controle');
-        return this._appService.login(body);
-    }
-    async findAll() {
-        console.log('coucou du controle');
-        return await this._appService.findAll();
+    async login(body) {
+        return await this._appService.login(body);
     }
 };
 exports.AppController = AppController;
@@ -31,14 +26,8 @@ __decorate([
     (0, microservices_1.MessagePattern)({ message: 'login' }),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
-    __metadata("design:returntype", Object)
-], AppController.prototype, "login", null);
-__decorate([
-    (0, microservices_1.MessagePattern)({ message: 'findAll' }),
-    __metadata("design:type", Function),
-    __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
-], AppController.prototype, "findAll", null);
+], AppController.prototype, "login", null);
 exports.AppController = AppController = __decorate([
     (0, common_1.Controller)(),
     __metadata("design:paramtypes", [app_service_1.AppService])

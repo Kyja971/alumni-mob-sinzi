@@ -21,15 +21,11 @@ let AppService = class AppService {
     constructor(_repository) {
         this._repository = _repository;
     }
-    login(body) {
-        console.log('coucou');
-        if (this._repository.findOne({ where: { email: body.email } })) {
+    async login(body) {
+        if (await this._repository.findOne({ where: { email: body.email } })) {
             return { token: 'Ceci est un token' };
         }
         return null;
-    }
-    findAll() {
-        return this._repository.find();
     }
 };
 exports.AppService = AppService;
