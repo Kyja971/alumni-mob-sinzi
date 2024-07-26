@@ -5,3 +5,6 @@ env
 
 # Exclude globally node_modules
 node_modules
+
+#Excludes globally all built app
+dist
