@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   Controller,
   Get,
@@ -19,13 +20,5 @@ export class AuthController {
   @Post('login')
   login(@Body() body: AuthBodyType) {
     return this._authService.login(body).pipe(take(1));
-    //return this._authService.test();
   }
-
-  @Get()
-    findAll(): Observable<TokenType[]>{
-    return this._authService.findAll();
-  }
-  
 }
-
