@@ -1,24 +1,26 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
+import { ClientProxy } from '@nestjs/microservices';
+import { AuthBodyType } from './models/auth-body.type';
+import { Observable } from 'rxjs';
+import { TokenType } from './models/token.type';
 
 @Injectable()
 export class AuthService {
-  create() {
-    return 'This action adds a new auth';
+
+  constructor(@Inject('AUTH') private _client: ClientProxy) {}
+
+  login(body: AuthBodyType): Observable<TokenType | null> {
+    const pattern: any = { message: 'login' }
+    return this._client.send<TokenType | null>(pattern, body)
   }
 
-  findAll() {
-    return `This action returns all auth`;
+  findAll(): Observable<Array<TokenType> | null>{
+    const pattern: any = { message: 'findAll' }
+    return this._client.send<Array<TokenType> | null>(pattern, {})
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} auth`;
-  }
-
-  update(id: number) {
-    return `This action updates a #${id} auth`;
-  }
-
-  remove(id: number) {
-    return `This action removes a #${id} auth`;
-  }
+  /*test(){
+    const pattern: any = { cmd: 'test' }
+    return this._client.send<any>(pattern, {})
+  }*/
 }

@@ -3,6 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+import { AccountEntity } from './models/account-entity';
 
 const envfile = 'env/' + process.env.NEST_ENV;
 @Module({
@@ -20,10 +21,10 @@ const envfile = 'env/' + process.env.NEST_ENV;
         username: configService.get<string>('DATABASE_USERNAME'),
         password: configService.get<string>('DATABASE_PASSWORD'),
         database: configService.get<string>('DATABASE_DATABASE'),
-        entities: [],
+        entities: [AccountEntity],
         synchronize: true,
       }),
-    }),
+    }),TypeOrmModule.forFeature([AccountEntity])
   ],
   controllers: [AppController],
   providers: [AppService],

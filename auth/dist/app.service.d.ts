@@ -1,3 +1,10 @@
+import { AuthBodyType } from './models/auth-body.type';
+import { TokenType } from './models/token.type';
+import { AccountEntity } from './models/account-entity';
+import { Repository } from 'typeorm';
 export declare class AppService {
-    getHello(): string;
+    private _repository;
+    constructor(_repository: Repository<AccountEntity>);
+    login(body: AuthBodyType): TokenType | null;
+    findAll(): Promise<Array<AccountEntity>>;
 }
